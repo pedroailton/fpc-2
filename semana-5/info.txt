@@ -1,0 +1,4 @@
+Árvore Geradora Mínima
+Esse tipo de árvore é um subconjunto acíclico que contém todos os vértices e tem o somatório dos pesos de arestas como mínimo. Útil para aplicações como circuitos eletrônicos.
+1. Implementar algoritmo de Kruskal O(E log2V)
+2. Implementar algoritmo de Prim O(E + V log2V)

@@ -1,0 +1,3 @@
+Ordenamento topológico e componentes fortemente conectados
+1. Implementar Topological-Sort(G)
+2. Implementar Stringly-Connected-Components(G)

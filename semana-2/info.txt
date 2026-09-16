@@ -1,0 +1,7 @@
+1. Implementar uma classe Red-Bleck Tree, com todas as funcionalidades estudadas.
+2. Implemente uma classe para a arvore AVL
+    Observe que a arvore AVL e uma arvore binaria de busca
+    incrementada com o fator de balanceamento e as operac~oes de
+    rotac~ao
+    Assim, dada a exist^encia de uma classe para uma arvore binaria
+    (aula passada) use o processo de heranca para reuso de codigo.
