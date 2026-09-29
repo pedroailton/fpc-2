@@ -5,7 +5,8 @@ class Node():
         self.father = father
         self.data = data # este é um campo generico, para guardar informacões satelites)
 
-    # Getters
+    # Getters (não utilizados por fim de simplificação)
+    # O código usa acesso direto aos atributos do objeto
     def getInfo(self): return self.data
     def getLeft(self): return self.left
     def getRight(self): return self.right
@@ -15,37 +16,48 @@ class BTree():
     def __init__(self) -> None:
         self.root = None
 
-    def maximum(self, node: Node) -> Node:
-        if node == None:
-            return None
-        atual = node
-        while atual.getRight() is not None:
-            atual = atual.getRight()
-        return atual
-
-    def minimum(self, node : Node) -> Node:
-        if node == None:
-            return None
-        atual = node
-        while atual.getLeft() is not None:
-            atual = atual.getLeft()
-        return atual
-
-    def sucessor(self, node: Node) -> Node:
-        if node == None:
-            return
-        node.getRight()
-        return
-
-    def predecessor(self, node: Node) -> Node:
-        if node == None:
-            return
-        node.getLeft()
-        return
-
-    def insert(self, node: Node) -> None:
-        # Se a árvore estiver vazia
+    def inserirEVerificar(self, num):
         if self.root == None:
-            self.root = node
+            self.root = Node(num, None, None, None)
+            return True
 
-        
+        else:
+            no_atual = self.root # cursor
+
+            # Laço para percorrer a árvore e alocar um novo nó
+            while True:
+                if num == no_atual.data:
+                    return False
+                elif num < no_atual.data:
+                    if no_atual.left == None:
+                        novo_no = Node(num, None, None, no_atual)
+                        no_atual.left = novo_no
+                        return True
+                    else:
+                        no_atual = no_atual.left
+                elif num > no_atual.data:
+                    if no_atual.right == None:
+                        novo_no = Node(num, None, None, no_atual)
+                        no_atual.right = novo_no
+                        return True
+                    else:
+                        no_atual = no_atual.right
+
+def sortList(array):
+    tree = BTree()
+    repetiu = False
+    for n in array:
+        resultado = tree.inserirEVerificar(n)
+        if resultado:
+            continue
+        else:
+            print(f"uma repetição ocorreu com o número {n}")
+            repetiu = True
+            break
+    if not repetiu:
+        print("Não há repetições nessa lista")
+
+# Teste
+if __name__ == "__main__":
+    array = [2, 4, 10]
+    sortList(array)
